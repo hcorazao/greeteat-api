@@ -1,0 +1,74 @@
+{
+  "name": "functions",
+  "version": "1.0.0",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint \"src/**/*\"",
+    "build": "npm run lint && tsc",
+    "create-runtime-config-file": "firebase functions:config:get > .runtimeconfig.json",
+    "serve": "run-script-os",
+    "serve:win32": "SET IS_LOCAL=true & npm run build && firebase emulators:start",
+    "serve:darwin:linux": "export IS_LOCAL=true & npm run build && firebase emulators:start",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "deploy:staging": "firebase deploy --only functions -P staging",
+    "deploy:production": "firebase deploy --only functions -P production",
+    "deploy:qa": "firebase deploy --only functions -P qa",
+    "logs": "firebase functions:log",
+    "test": "jest --config ./jest.config.ts"
+  },
+  "engines": {
+    "node": "12"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "@google-cloud/logging-winston": "^4.0.4",
+    "@types/express-serve-static-core": "^4.17.18",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "develop": "^1.0.0",
+    "express": "^4.17.1",
+    "express-joi-validation": "^5.0.0",
+    "express-winston": "^4.0.5",
+    "firebase-admin": "^9.2.0",
+    "firebase-functions": "^3.11.0",
+    "helmet": "^4.2.0",
+    "joi": "^17.4.0",
+    "nodemon": "^2.0.6",
+    "stripe": "^8.137.0",
+    "superagent": "^6.1.0",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.9",
+    "@types/express": "^4.17.9",
+    "@types/helmet": "^4.0.0",
+    "@types/node": "^14.14.11",
+    "@types/superagent": "^4.1.10",
+    "@typescript-eslint/eslint-plugin": "^3.10.1",
+    "@typescript-eslint/parser": "^3.10.1",
+    "eslint": "^7.15.0",
+    "eslint-plugin-import": "^2.22.0",
+    "firebase-functions-test": "^0.2.0",
+    "jest": "^26.6.3",
+    "run-script-os": "^1.1.5",
+    "ts-node": "^9.1.1",
+    "typescript": "^3.8.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GreetEat/greeteat-backend.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "firebase",
+    "greeteat"
+  ],
+  "bugs": {
+    "url": "https://github.com/GreetEat/greeteat-backend/issues"
+  },
+  "homepage": "https://github.com/GreetEat/greeteat-backend#readme",
+  "private": true
+}

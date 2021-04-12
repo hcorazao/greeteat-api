@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "production": "greeteat-cb454",
+    "staging": "greeteat-staging",
+    "qa": "greeteat-web-qa",
+    "default": "greeteat-web-qa"
+  }
+}
